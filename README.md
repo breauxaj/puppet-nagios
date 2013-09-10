@@ -5,7 +5,7 @@ Installs nrpe with the main plugins. Use nagios::server to install the server
 and configure monitoring.
 
 Samples
-=======
+-------
 ```
 include nagios
 ```
