@@ -47,6 +47,7 @@ nagios::users { 'default':
 ```
 
 Server
-======
-
+------
+```
 include nagios::server
+```
