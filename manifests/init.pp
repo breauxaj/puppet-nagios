@@ -33,10 +33,20 @@ class nagios {
     mode   => '0755',
     source => 'puppet:///modules/nagios/nrpe.init'
   }
-    
-  add_group { 'nrpe': gid => 126 }
 
-  add_service { 'nrpe': gid => 126, groups => '', uid => 126 }
+  group { 'nrpe':
+    ensure => present,
+    gid    => 126,
+  }
+
+  user { 'nrpe':
+    ensure     => present,
+    gid        => 126,
+    home       => '/var/lib/nrpe',
+    shell      => '/sbin/nologin',
+    managehome => true,
+    uid        => 126,
+  }
 
 }
 
