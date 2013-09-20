@@ -1,3 +1,0 @@
-# MANAGED BY PUPPET!
-command[check_zombie_procs]=/usr/lib64/nagios/plugins/check_procs -w 5 -c 10 -s Z
-command[check_total_procs]=/usr/lib64/nagios/plugins/check_procs -w <%= warning %> -c <%= critical %>
