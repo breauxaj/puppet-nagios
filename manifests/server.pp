@@ -1,7 +1,7 @@
 class nagios::server {
   Class['nagios::server']->Class['apache']
 
-  $required = $operatingsystem ? {
+  $required = $::operatingsystem ? {
     /(?i-mx:centos|fedora|redhat|scientific)/ => 'nagios',
   }
 
