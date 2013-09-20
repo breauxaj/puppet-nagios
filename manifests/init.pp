@@ -5,6 +5,20 @@ class nagios {
     /(?i-mx:centos|fedora|redhat|scientific)/ => 'nagios',
   }
 
+  $paths = $::operatingsystem ? {
+    /(?i-mx:centos|fedora|redhat|scientific)/ => [
+      '/etc/nagios',
+      '/etc/nagios/conf.d'
+    ],
+  }
+
   package { $required: ensure => latest }
+
+  file { $paths:
+    ensure => directory,
+    owner  => 'root',
+    group  => 'root',
+    mode   => '0755',
+  }
 
 }
