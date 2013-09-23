@@ -8,7 +8,9 @@ class nagios {
   $paths = $::operatingsystem ? {
     /(?i-mx:centos|fedora|redhat|scientific)/ => [
       '/etc/nagios',
-      '/etc/nagios/conf.d'
+      '/etc/nagios/conf.d',
+      '/etc/nagios/objects',
+      '/etc/nagios/private'
     ],
   }
 
