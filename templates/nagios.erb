@@ -1,10 +1,17 @@
-log_file=/var/log/nagios/nagios.log
-cfg_file=/etc/nagios/objects/commands.cfg
-cfg_file=/etc/nagios/objects/contacts.cfg
-cfg_file=/etc/nagios/objects/timeperiods.cfg
-cfg_file=/etc/nagios/objects/templates.cfg
-cfg_file=/etc/nagios/objects/localhost.cfg
-cfg_dir=/etc/nagios/conf.d
+<% if @log_file and ! @log_file.empty? -%>
+log_file=<%= @log_file %>
+<% end -%>
+<% if @cfg_file and ! @cfg_file.empty? -%>
+<% [@cfg_file].each do |cf| -%>
+cfg_file=<%= cf %>
+<% end -%>
+<% end -%>
+<% if @cfg_dir and ! @cfg_dir.empty? -%>
+<% [@cfg_dir].each do |cd| -%>
+cfg_dir=<%= cd %>
+<% end -%>
+<% end -%>
+
 object_cache_file=/var/log/nagios/objects.cache
 precached_object_file=/var/log/nagios/objects.precache
 resource_file=/etc/nagios/private/resource.cfg
