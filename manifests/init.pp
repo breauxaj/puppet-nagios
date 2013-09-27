@@ -5,9 +5,14 @@ class nagios {
     /(?i-mx:centos|fedora|redhat|scientific)/ => 'nagios',
   }
 
+  $conf = $::operatingsystem ? {
+    /(?i-mx:centos|fedora|redhat|scientific)/ => [
+      '/etc/nagios'
+    ],
+  }
+
   $paths = $::operatingsystem ? {
     /(?i-mx:centos|fedora|redhat|scientific)/ => [
-      '/etc/nagios',
       '/etc/nagios/conf.d',
       '/etc/nagios/objects',
       '/etc/nagios/private'
@@ -16,11 +21,18 @@ class nagios {
 
   package { $required: ensure => latest }
 
-  file { $paths:
+  file { $conf:
     ensure => directory,
     owner  => 'root',
     group  => 'root',
-    mode   => '0755',
+    mode   => '0775',
+  }
+
+  file { $paths:
+    ensure => directory,
+    owner  => 'root',
+    group  => 'nagios',
+    mode   => '0750',
   }
 
 }
