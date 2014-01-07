@@ -1,6 +1,9 @@
 class nagios {
   $required = $::operatingsystem ? {
-    /(?i-mx:centos|fedora|redhat|scientific)/ => 'nagios',
+    /(?i-mx:centos|fedora|redhat|scientific)/ => [
+      'nagios',
+      'nagios-plugins-nrpe',
+    ],
   }
 
   $conf = $::operatingsystem ? {
