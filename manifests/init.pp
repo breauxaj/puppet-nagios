@@ -36,4 +36,12 @@ class nagios {
     mode   => '0750',
   }
 
+  file { '/etc/httpd/conf.d/nagios.conf':
+    ensure => present,
+    owner  => 'root',
+    group  => 'root',
+    mode   => '0644',
+    source => 'puppet:///modules/nagios/nagios.txt',
+  }
+
 }
