@@ -17,7 +17,10 @@ class nagios {
     ],
   }
 
-  package { $required: ensure => latest }
+  package { $required:
+    ensure  => latest,
+    require => Package[ 'httpd', 'php' ],
+  }
 
   file { $conf:
     ensure => directory,
