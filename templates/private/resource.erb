@@ -1,6 +1,0 @@
-# MANAGED BY PUPPET!
-<% if resources and ! resources.empty? -%>
-<%= resources.each_with_index.map {|v,i| "$USER#{i+1}$=#{v}\n" } %>
-<% else -%>
-$USER1$=/usr/lib64/nagios/plugins
-<% end -%>
