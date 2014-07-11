@@ -15,9 +15,4 @@ class nagios::pnp4nagios (
     source => 'puppet:///modules/nagios/pnp4nagios.txt',
   }
 
-  service { 'npcd':
-    ensure => running,
-    enable => true,
-  }
-
 }
