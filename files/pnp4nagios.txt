@@ -1,5 +1,3 @@
-# SAMPLE CONFIG SNIPPETS FOR APACHE WEB SERVER
-
 Alias /pnp4nagios "/usr/share/nagios/html/pnp4nagios"
 
 <Directory "/usr/share/nagios/html/pnp4nagios">
